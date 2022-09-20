@@ -1,0 +1,29 @@
+server:
+  port: 8189
+  servlet:
+    context-path: /web-market-core
+utils:
+  cart:
+    prefix: SPRING_WEB_
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:mydatabase;MODE=PostgreSQL
+    username: sa
+    password:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: false
+integrations:
+  cart-service:
+    url: http://localhost:5555/cart
+    connect-timeout: 2000
+    read-timeout: 10000
+    write-timeout: 2000
